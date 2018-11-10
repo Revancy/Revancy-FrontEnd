@@ -9,7 +9,10 @@ class Column extends Component {
 
 		for (var i = 0; i < this.props.mails.length; i++) {
 			mails.push(
-				<Mail/>
+				<Mail 
+					key={"kanban-mail-" + this.props.index + "-" + i}
+
+				/>
 			);
 		}
 

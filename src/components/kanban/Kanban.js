@@ -13,6 +13,7 @@ class Kanban extends Component {
 				<Column 
 					key={"kanban-row-" + i}
 					mails={this.props.kanban[i]}
+					index={i}
 				/>
 			)
 		}
