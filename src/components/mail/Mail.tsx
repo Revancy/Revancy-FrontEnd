@@ -14,7 +14,9 @@ import {
 	DropTargetConnector,
 	DragSourceConnector,
 	DragSourceMonitor,
-} from 'react-dnd'
+} from 'react-dnd';
+
+import { XYCoord } from 'dnd-core'
 
 const MailSource = {
 	beginDrag(props: MailProps) {
@@ -35,7 +37,6 @@ const MailTarget = {
 		const hoverIndex = props.index
 		const hoverColumn = props.column
 
-		console.log(monitor.getItem().index);
 
 		// Don't replace items with themselves
 		if (dragIndex === hoverIndex && dragColumn === hoverColumn) {
@@ -86,7 +87,8 @@ export interface MailProps {
 	id: any,
 	index: number,
 	column: number,
-	moveMail: (dragIndex: number, hoverColumn: number, hoverIndex: number) => void
+	name: string,
+	moveMail: (dragColumn: number, dragIndex: number, hoverColumn: number, hoverIndex: number) => void
 }
 
 interface MailSourceCollectedProps {
@@ -98,40 +100,33 @@ interface MailTargetCollectedProps {
 	connectDropTarget: ConnectDropTarget
 }
 
-const collect: DragSourceCollector<mailProps> = (
-	connect: DragSourceConnector,
-	monitor: DragSourceMonitor,
-) => ({
-	connectDragSource: connect.dragSource(),
-	connectDragPreview: connect.dragPreview(),
-	isDragging: monitor.isDragging(),
-})
+// const collect: DragSourceCollector<mailProps> = (
+// 	connect: DragSourceConnector,
+// 	monitor: DragSourceMonitor,
+// ) => ({
+// 	connectDragSource: connect.dragSource(),
+// 	connectDragPreview: connect.dragPreview(),
+// 	isDragging: monitor.isDragging(),
+// })
 
 class Mail extends Component<MailProps & MailSourceCollectedProps & MailTargetCollectedProps> {
 
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			name: "Alexandr Boesci",
-			topic: "Lorem ipsum dolor sit amet"
-		}	
-	}
+
 
 	render() {
 		const {
-			text,
 			isDragging,
 			connectDragSource,
 			connectDropTarget,
 		} = this.props
+
 
 		return (
 			connectDragSource(
 				connectDropTarget(
 					<div className="mail">
 				 		<div className ='name'>{this.props.name}</div>
-				 		<div className ='topic'>{this.state.topic}</div>
+				 		<div className ='topic'>test topic</div>
 				 	</div>
 				)
 			)
