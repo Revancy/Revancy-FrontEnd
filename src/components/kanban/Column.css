@@ -1,0 +1,12 @@
+.column {
+	width: 350px;
+	margin: 10px 0 10px 10px;
+	
+
+	display: flex;
+	flex-flow: column;
+
+
+	background-color: #4C4B4E;
+	padding: 10px;
+}
