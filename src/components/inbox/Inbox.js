@@ -8,8 +8,11 @@ class Inbox extends Component {
 	render() {
 		return (
 			<div className = "inbox">
-        <Login/>
+        <div id="inbox-title">Inbox</div>
 				<Mail/>
+        <Mail/>
+        <Mail/>
+        <Login/>
 			</div>
 		)
 	}
