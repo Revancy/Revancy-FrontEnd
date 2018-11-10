@@ -5,13 +5,18 @@ import Mail from '../mail';
 
 class Column extends Component {
 	render() {
+		var mails = [];
+
+		for (var i = 0; i < this.props.mails.length; i++) {
+			mails.push(
+				<Mail/>
+			);
+		}
+
 		return (
 			<div className='column'>
 				<span className='title'></span>
-				<Mail/>
-				<Mail/>
-				<Mail/>
-				<Mail/>
+				{mails}
 			</div>
 		)
 	}

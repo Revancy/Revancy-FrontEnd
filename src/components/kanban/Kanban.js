@@ -4,11 +4,23 @@ import './Kanban.css';
 import Column from './Column.js';
 
 class Kanban extends Component {
+
 	render() {
+		var columns = [];
+
+		for (let i = 0; i < this.props.kanban.length; i++) {
+			columns.push(
+				<Column 
+					key={"kanban-row-" + i}
+					mails={this.props.kanban[i]}
+				/>
+			)
+		}
+
+
 		return (
 			<div className='kanban'>
-				<Column/>
-				<Column/>
+				{columns}
 			</div>
 		)
 	}
