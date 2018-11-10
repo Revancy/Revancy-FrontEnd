@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
+
 import './Mail.css'
 
 import ItemTypes from '../../globals.js';
@@ -16,7 +18,10 @@ import {
 
 const MailSource = {
 	beginDrag(props: MailProps) {
-		return {}
+		return {
+			index: props.index,
+			column: props.column
+		}
 	}
 }
 
@@ -26,10 +31,14 @@ const MailTarget = {
 			return null
 		}
 		const dragIndex = monitor.getItem().index
+		const dragColumn = monitor.getItem().column
 		const hoverIndex = props.index
+		const hoverColumn = props.column
+
+		console.log(monitor.getItem().index);
 
 		// Don't replace items with themselves
-		if (dragIndex === hoverIndex) {
+		if (dragIndex === hoverIndex && dragColumn === hoverColumn) {
 			return
 		}
 
@@ -62,18 +71,22 @@ const MailTarget = {
 		}
 
 		// Time to actually perform the action
-		// props.moveMail(dragIndex, hoverIndex)
+		props.moveMail(dragColumn, dragIndex, hoverColumn, hoverIndex)
 
 		// Note: we're mutating the monitor item here!
 		// Generally it's better to avoid mutations,
 		// but it's good here for the sake of performance
 		// to avoid expensive index searches.
 		monitor.getItem().index = hoverIndex
+		monitor.getItem().column = hoverColumn
 	}
 }
 
 export interface MailProps {
-	moveMail: (dragIndex: number, hoverIndex: number) => void
+	id: any,
+	index: number,
+	column: number,
+	moveMail: (dragIndex: number, hoverColumn: number, hoverIndex: number) => void
 }
 
 interface MailSourceCollectedProps {
@@ -117,7 +130,7 @@ class Mail extends Component<MailProps & MailSourceCollectedProps & MailTargetCo
 			connectDragSource(
 				connectDropTarget(
 					<div className="mail">
-				 		<div className ='name'>{this.state.name}</div>
+				 		<div className ='name'>{this.props.name}</div>
 				 		<div className ='topic'>{this.state.topic}</div>
 				 	</div>
 				)

@@ -8,12 +8,13 @@ class Kanban extends Component {
 	render() {
 		var columns = [];
 
-		for (let i = 0; i < this.props.kanban.length; i++) {
+		for (let i = 1; i < this.props.mails.length; i++) {
 			columns.push(
 				<Column 
 					key={"kanban-row-" + i}
-					mails={this.props.kanban[i]}
+					mails={this.props.mails[i]}
 					index={i}
+					moveMail={this.props.moveMail}
 				/>
 			)
 		}

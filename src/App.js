@@ -12,13 +12,23 @@ class App extends Component {
 		super(props);
 
 		this.state = {
-			inbox: [1, 1, 1, 1, 1],
-			kanban: [
-				[1, 1, 1, 1, 1],
+			mails: [
+				['test1', 'test2', 1, 1, 1],//The first array shows the general inbox
+				['what?', 1, 1, 1, 1],
 				[1, 1, 1,],
 				[1, 1, 1, 1]
 			]
 		}
+	}
+
+	moveMail(dragCol, dragMail, hoverCol, hoverMail) {
+		let state = this.state;
+
+		let mail = state.mails[dragCol][dragMail];
+		this.state.mails[dragCol].splice(dragMail, 1);
+		this.state.mails[hoverCol].splice(hoverMail, 0, mail);
+
+		this.setState(state);
 	}
 
 	render() {
@@ -27,8 +37,14 @@ class App extends Component {
 		return (
 			<DragDropContextProvider backend={HTML5Backend}>
 			    <div className='app'>
-			    	<Inbox mails={this.state.inbox}/>
-			    	<Kanban kanban={this.state.kanban}/>
+			    	<Inbox 
+			    		mails={this.state.mails}
+			    		moveMail={this.moveMail.bind(this)}
+			    	/>
+			    	<Kanban 
+			    		mails={this.state.mails}
+			    		moveMail={this.moveMail.bind(this)}
+			    	/>
 			    </div>
 		    </DragDropContextProvider>
 		)

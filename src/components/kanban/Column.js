@@ -11,7 +11,10 @@ class Column extends Component {
 			mails.push(
 				<Mail 
 					key={"kanban-mail-" + this.props.index + "-" + i}
-
+					column= {this.props.index}
+					index={i}
+					moveMail={this.props.moveMail}
+					name={this.props.mails[i]}
 				/>
 			);
 		}
