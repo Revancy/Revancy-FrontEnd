@@ -6,14 +6,12 @@
 	display: flex;
 	flex-flow: column;
 
-
-  /* background-color: #4C4B4E; */
-  border-right: #FFFFFF solid 1px;
-	padding: 10px;
+	padding: 10px 0 0 25px;
 }
 
 .column .title {
-  font-size: 24px;
+  font-size: 25px;
+  font-weight: 700;
   color: black;
   position: relative;
   text-align: center;
@@ -21,5 +19,5 @@
   padding-bottom: 10px;
   top: -30px;
   margin-bottom: -20px;
-  border-radius: 5px;
+  border-radius: 9px;
 }

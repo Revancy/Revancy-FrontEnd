@@ -1,7 +1,29 @@
 .mail {
-	background-color: #828283;
+	background-color: #2E2E2E;
 	padding: 15px 30px 20px 30px;
 	width: 400px;
+	box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
+}
+
+.head {
+	display: flex;
+}
+
+.name {
+	font-size: 1.56rem;
+	display: inline-block;
+	font-weight: 700;
+}
+
+.time {
+	display: inline-block;
+	margin-left: auto;
+	margin-top: auto;
+	color: #c6c6c6;
+}
+
+.topic {
+	font-size: 1.125rem;
 }
 
 .name, .topic {
@@ -9,21 +31,8 @@
 	color: white;
 }
 
-.name {
-	font-size: 1.56rem;
-
-}
-
-.topic {
-	font-size: 1.125rem;
-}
-
 .column .mail {
 	width: auto;
-  border-radius: 10px;
+  border-radius: 9px;
 	margin: 5px 0;
-}
-
-.inbox .mail {
-  border: #FFFFFF solid 1px;
 }
