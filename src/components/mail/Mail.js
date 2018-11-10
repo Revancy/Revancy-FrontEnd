@@ -17,6 +17,7 @@ class Mail extends Component {
 			<div className="mail" >
 				<div className ='name'>{this.state.name}</div>
 				<div className ='topic'>{this.state.topic}</div>
+        <div className="time">2:30</div>
 			</div>
 		)
 	}

@@ -20,6 +20,10 @@
 
 .column .mail {
 	width: auto;
-
+  border-radius: 10px;
 	margin: 5px 0;
+}
+
+.inbox .mail {
+  border: #FFFFFF solid 1px;
 }

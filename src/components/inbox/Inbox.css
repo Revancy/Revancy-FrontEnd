@@ -1,8 +1,10 @@
 .inbox {
-	background-color: #2E2E2D;
 	display: inline-block;
-
 	height: 100vh;
+	background-color: #2e2e2e;
+}
 
-	background-color: #4C4B4E;
+#inbox-title {
+  font-size: 57px;
+  margin-left: 10px;
 }
