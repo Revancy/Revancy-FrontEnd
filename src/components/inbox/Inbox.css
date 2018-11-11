@@ -2,9 +2,29 @@
 	display: inline-block;
 	height: 100vh;
 	background-color: #2e2e2e;
+	box-shadow: 0px 2px 45px 9px rgba(0, 0, 0, 0.3);
+	z-index: 100;
 }
 
 #inbox-title {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+
+	height: 90px;
+	padding-left: 30px;
+
+  font-family: "lato";
   font-size: 57px;
-  margin-left: 10px;
+  font-weight: 300;
+  color: #9b9b9b;
+}
+
+.divider {
+	display: inline-block;
+	border: none;
+	background-color: #1c1c1c;
+	height: 1px;
+	width: 100%;
+	margin: 0;
 }

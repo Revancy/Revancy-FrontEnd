@@ -2,7 +2,13 @@
 	background-color: #2E2E2E;
 	padding: 15px 30px 20px 30px;
 	width: 400px;
-	box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 5px 12px -1px rgba(0, 0, 0, 0.3);
+	margin-top: 1px;
+}
+
+.mail__divider {
+	position: absolute;
+	bottom: 0;
 }
 
 .head {
@@ -10,7 +16,7 @@
 }
 
 .name {
-	font-size: 1.56rem;
+	font-size: 1.3rem;
 	display: inline-block;
 	font-weight: 700;
 }
@@ -22,17 +28,23 @@
 	color: #c6c6c6;
 }
 
-.topic {
-	font-size: 1.125rem;
-}
 
 .name, .topic {
 	font-family: lato;
 	color: white;
 }
 
+.topic {
+	font-size: 1rem;
+	color: #c6c6c6;
+}
 .column .mail {
 	width: auto;
-  border-radius: 9px;
-	margin: 5px 0;
+	border-radius: 9px;
+	margin-top: 10px;
+	box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
+}
+
+.column .topic {
+	margin-top: 5px;
 }

@@ -6,12 +6,20 @@ import Login from '../login';
 
 class Inbox extends Component {
 	render() {
+		var mails = [];
+
+		for (let i = 0; i < 6; i++) {
+			mails.push(
+				<Mail
+					isInbox={true}
+				/>
+			)
+		}
+
 		return (
 			<div className = "inbox">
         <div id="inbox-title">Inbox</div>
-				<Mail/>
-        <Mail/>
-        <Mail/>
+				{mails}
         <Login/>
 			</div>
 		)
